@@ -1,20 +1,32 @@
 // Assignment code here
 var password=document.getElementById("password");
-
-window.confirm("choose a password between 8-128 characters")
-window.confirm("include lowercase, uppercase, special chars?")
+var number =[1,2,3,4,5,6,7,8,9]
+var letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
+  "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var lowercase = "abcdefghijklmnopqrstuvwxyz"
+  var specialchar = "*()%^&%$#@!|/\."
+var enter;
 
 
 function genPassword() {
-  var length = 8,
-      charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+~`|}{[]\:;?><,./-=",
-      retVal = "";
-  for (var i = 0, n = charset.length; i < length; ++i) {
-      retVal += charset.charAt(Math.floor(Math.random() * n));
+  //ask for users input
+  enter = parseInt(prompt("How many characters would you like your password? Choose between 8 and 128"));
+  if (!enter) {
+    alert("This needs a value");
+  } else if (enter < 8 || enter > 128) {
+    //validates user input
+    enter = parseInt(prompt("You must choose between 8 and 128"));
+  } else {
+    //prompts after user input validated
+    window.confirm("use special characters?")
   }
-  return retVal;
-}  
-
+}
+for (var i = 0, n = charset.length; i < length; ++i) {
+  randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+ console.log(randomPassword)
+}
+return randomPassword;
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
